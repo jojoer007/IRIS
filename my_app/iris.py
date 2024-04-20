@@ -1,6 +1,7 @@
 from sklearn.datasets import load_iris
 from sklearn.tree import DecisionTreeClassifier
 import joblib
+import numpy as np
 
 def predict_iris(features):
 # โหลดข้อมูล IRIS
@@ -19,7 +20,11 @@ def predict_iris(features):
     loaded_model = joblib.load('decision_tree_model.pkl')
 
 # ใช้โมเดลทำนาย
-    prediction = loaded_model.predict(features)[0]
+    #prediction = loaded_model.predict(features)[0]
+
+# แปลงลิสต์ features เป็น NumPy array ก่อนทำการ reshape
+    features_array = np.array(features)
+    prediction = loaded_model.predict(features_array.reshape(1, -1))
     
     value = []
     for label in prediction:
