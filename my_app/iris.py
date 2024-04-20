@@ -20,7 +20,7 @@ def predict_iris(features):
     loaded_model = joblib.load('decision_tree_model.pkl')
 
 # ใช้โมเดลทำนาย
-    #prediction = loaded_model.predict(features)[0]
+    #prediction = loaded_model.predict(features)[0] #วิธีนี้ใช้ไม่ได้แล้ว
 
 # แปลงลิสต์ features เป็น NumPy array ก่อนทำการ reshape
     features_array = np.array(features)
