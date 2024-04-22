@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Iris Prediction Results</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+        th, td {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <h2>Iris Prediction Results</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Sepal Length</th>
+                <th>Sepal Width</th>
+                <th>Petal Length</th>
+                <th>Petal Width</th>
+                <th>Predicted Iris Type</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% if results %}
+                {% for result in results %}
+                <tr>
+                    <td>{{ result[0] }}</td>
+                    <td>{{ result[1] }}</td>
+                    <td>{{ result[2] }}</td>
+                    <td>{{ result[3] }}</td>
+                    <td>{{ result[4] }}</td>
+                </tr>
+                {% endfor %}
+            {% else %}
+                <tr>
+                    <td colspan="2">No data available</td>
+                </tr>
+            {% endif %}
+        </tbody>
+    </table>
+
+
+    <p><a href="/"><strong>Back</strong></a></p>
+    
+</body>
+</html>
